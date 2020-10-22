@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>おみくじ</title>
+</head>
+<body>
+
+<header>
+    <h1>おみくじ</h1>
+</header>
+
+<main>
+    <ul>
+        <li id="pull">おみくじを引く</li>
+    </ul>
+    <p id="echo"></p>
+</main>
+
+<footer>フッター</footer>
+<script>
+const echo = document.querySelector("#echo");
+//Clickイベントのブロック
+const pull = document.querySelector("#pull");
+pull.onclick = function(){
+    //乱数を作る
+    const num = Math.ceil (Math.random() *7);
+
+    //乱数をIF分岐処理で分ける
+    //条件に合っていればalert()で表示
+    if(num==1){
+        //const test = document.querySelector("#test");
+        //test.style.color="ff0000"
+        echo.innerHTML="<h1>運勢：大吉</h1>"+
+                       "<h4>今日はいいことあるかも！ラッキーカラーは白</h4>";
+        //echo.innerHTML='<img src="a,jpg">';
+        echo.style.color = "#ffffff";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "#dc143c";
+        //alert("大吉");
+    }if(num==2){
+        echo.innerHTML="<h1>運勢：中吉</h1>"+
+                       "<h4>慌てなければ願いは叶う ラッキーカラーはピンク</h4>";
+        echo.style.color = "#db7093";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "#dcdcdc";
+        //alert("中吉");
+    }if(num==3){
+        echo.innerHTML="<h1>運勢：小吉</h1>"+
+                       "<h4>人を助けると良いことがあるかも？</h4>";
+        echo.style.color = "ffc0cb";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "#000000";
+        //alert("小吉");
+    }if(num==4){
+        echo.innerHTML="<h1>運勢：吉</h1>"+
+                       "<h4>人の助けは素直に受け取って ラッキーカラーはオレンジ</h4>";
+        echo.style.color = "#ff8c00";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "f5f5f5";
+        //alert("吉");
+    }if(num==5){
+        echo.innerHTML="<h1>運勢：凶</h1>"+
+                       "<h4>あなたの前に大きな壁が立ちはだかるでしょう。ラッキーナンバーは5</h4>";
+        echo.style.color = "#00ff00";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "#000000";
+        //alert("凶");
+    }if(num==6){
+        echo.innerHTML="<h1>運勢：大吉</h1>"+
+                       "<h4>幸運の女神があなたにほほ笑みかけています！何事にもチャレンジしよう！</h4>";
+        echo.style.color = "#dc143c";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "#ffffff";
+    }if(num==7){
+        echo.innerHTML="<h1>運勢：中吉</h1>"+
+                       "<h4>自分から行動しよう！何事も上手くいくはず！</h4>";
+        echo.style.color = "#db7093";
+        echo.style.fontSize = "36px";
+        echo.style.backgroundColor = "#dcdcdc";
+    }
+
+}
+
+
+
+
+
+</script>
+</body>
+</html>
