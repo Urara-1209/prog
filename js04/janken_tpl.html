@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+
+<body>
+<body style="background-color:#ffeaff;"></body>
+<header>
+  <h1>じゃんけん<img src="janken.jpg" width="100" height="100"></h1>
+</header>
+
+<main>
+  <ul>
+    <li id="gu_btn"><img src="janken_gu.png" width="100" height="100"></li>
+    <li id="cho_btn"><img src="janken_choki.png" width="100" height="100"></li>
+    <li id="par_btn"><img src="janken_pa.png" width="100" height="100"></li>
+  </ul>
+  <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+  <div id="judgment"></div>
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+
+$("#gu_btn").on("click", function(){
+    //乱数を創る1~3
+    $("#gu_btn").css("background","#ffb6c1");
+    $("#cho_btn").css("background","#ffffff");
+    $("#par_btn").css("background","#ffffff");
+    const num = Math.ceil (Math.random() *3);
+    if(num == 1){
+        //$("#pc_hands").html("グー")
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_gu.png" width="100" height="100">');
+        $("#judgment").html("<p>あいこ</p>");
+        $("#judgment").css("color","#000000");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+    if(num == 2){
+        //$("#pc_hands").html("チョキ");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_choki.png" width="100" height="100">');
+        $("#judgment").html("<p>勝ち</p>");
+        $("#judgment").css("color","#ff0000");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+    if(num == 3){
+        //$("#pc_hands").html("パー");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_pa.png" width="100" height="100">');
+        $("#judgment").html("<p>負け</p>");
+        $("#judgment").css("color","#0000ff");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+});
+$("#cho_btn").on("click", function(){
+  $("#gu_btn").css("background","#ffffff");
+  $("#cho_btn").css("background","#ffb6c1");
+  $("#par_btn").css("background","#ffffff");
+    //乱数を創る1~3
+    const num = Math.ceil (Math.random() *3);
+    if(num == 1){
+        //$("#pc_hands").html("グー");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_gu.png" width="100" height="100">');
+        $("#judgment").html("<p>負け</p>");
+        $("#judgment").css("color","#0000ff");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+    if(num == 2){
+        //$("#pc_hands").html("チョキ");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_choki.png" width="100" height="100">');
+        $("#judgment").html("<p>あいこ</p>");
+        $("#judgment").css("color","#000000");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+    if(num == 3){
+        //$("#pc_hands").html("パー");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_pa.png" width="100" height="100">');
+        $("#judgment").html("<p>勝ち</p>");
+        $("#judgment").css("color","#ff0000");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+});
+$("#par_btn").on("click", function(){
+  $("#gu_btn").css("background","#ffffff");
+  $("#cho_btn").css("background","#ffffff");
+  $("#par_btn").css("background","#ffb6c1");
+    //乱数を創る1~3
+    const num = Math.ceil (Math.random() *3);
+    if(num == 1){
+        //$("#pc_hands").html("グー");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_gu.png" width="100" height="100">');
+        $("#judgment").html("<p>勝ち</p>");
+        $("#judgment").css("color","#ff0000");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+    if(num == 2){
+        //$("#pc_hands").html("チョキ");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_choki.png" width="100" height="100">');
+        $("#judgment").html("<p>負け</p>");
+        $("#judgment").css("color","#0000ff");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+    if(num == 3){
+        //$("#pc_hands").html("パー");
+        //$("#pc_hands").css("color","#ff0000");
+        $("#pc_hands").html('<img src="janken_pa.png" width="100" height="100">');
+        $("#judgment").html("<p>あいこ</p>");
+        $("#judgment").css("color","#000000");
+        $("#judgment").show();//1000=1秒
+        $("#judgment").fadeIn(100).fadeOut(300).fadeIn(1000);
+    }
+});
+    
+    
+    
+    
+    
+    
+    
+
+</script>
+</body>
+</html>
