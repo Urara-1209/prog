@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+<script>
+    function judge(tall){
+        if(tall > 175){
+            const t = " 背が高い "
+            return t;
+        }else if(tall > 160){
+            const t = " 普通 "
+            return t;
+        }else{
+            const t = " 背が低い "
+            return t;
+        }
+    }
+    const a = judge(180);
+    const b = judge(170);
+    const c = judge(155);
+    const t = a + b + c;
+    document.querySelector("h1").innerHTML=t;
+</script>
+</body>
+</html>
