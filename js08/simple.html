@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Chatアプリ</title>
+<link rel="stylesheet" href="css/sample.css">
+<style>
+    .container {
+      width: 60%;
+      margin: 30px auto;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Chatアプリ</h1>
+</header>
+<!-- コンテンツ表示画面 -->
+<div>
+    <div>名前：<input type="text" id="uname"> </div>
+    <div><input type="time" id="DateTimeDisp"></div>
+    <div class="chat-box">
+        <div class="chat-face"><img src="imgs/dog.png" width="100" alt="" /></div>
+        <div class="chat-area">
+        <div class="chat-hukidashi">
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="send">送信</button>
+        </div>
+    </div>
+    </div>
+    <div class="chat-box2">
+        <div class="chat-face2"><img src="imgs/buke.png" width="100" alt="" /></div>
+        <div class="chat-area2">
+        <div class="chat-hukidashi2">コメントしてね</div>
+    </div>
+    </div>
+    <div id="output"></div>
+</div>
+
+
+
+
+
+
+
+
+<!--/ コンテンツ表示画面 -->
+
+
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- JQuery -->
+
+
+<!--** 以下Firebase **-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBDp2ddnFqBEujJHvkyImDxQuHlFtV6YEE",
+    authDomain: "gsdemo-7104a.firebaseapp.com",
+    databaseURL: "https://gsdemo-7104a.firebaseio.com",
+    projectId: "gsdemo-7104a",
+    storageBucket: "gsdemo-7104a.appspot.com",
+    messagingSenderId: "996514699247",
+    appId: "1:996514699247:web:4969e6e22de8c93491481a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+const ref = firebase.database().ref();
+
+//アイコン処理
+let d=0;
+const img = ["dog.png","buke.png","tuku.jpg","caram.png"];
+$(".imgs").on("click",function(){
+    d = $(this).attr("date-img");
+});
+
+
+//送信イベント
+$("#send").on("click", function(){
+    const uname = $("#uname").val();
+    const time  = $("#DateTimeDisp").val();
+    const text  = $("#text").val();
+    const msg = {
+      uname: uname,
+      time:  time,
+      text:  text,
+      icon:  d
+    };
+    ref.push(msg);//送信する
+});
+
+$("#text").on("keydown", function(e){
+    if(e.keyCode==13){
+        const uname = $("#uname").val();
+        const time  = $("#DateTimeDisp").val();
+        const text  = $("#text").val();
+        const msg = {
+        uname: uname,
+        time:  time,
+        text:  text,
+        icon:  d
+        };
+        ref.push(msg);//送信する
+    }
+});
+
+
+
+
+
+//受信イベント
+ref.on("child_added",function(data){
+    const v = data.val(); //オブジェクト変数がvに代入
+    const k = data.key;   //データのユニークKEY
+    const h = '<p>'+'<img src="imgs/'+img[v.icon]+'" width="50">'+'&emsp;'+v.uname+'&emsp;'+v.time+'<br>'+v.text+'</p>';
+    $("#output").prepend(h);
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
