@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>クイズ練習（複数）</title>
+</head>
+<body>
+
+<header>
+    <h1>クイズ</h1>
+    <h2></h2>
+</header>
+
+<main>
+  <p id="quest">ここに問題が出題されます</p>
+  <p>
+    <input type="radio" name="toi" value="1"><span id="toi1">選択肢１</span>
+    <input type="radio" name="toi" value="2"><span id="toi2">選択肢２</span>
+    <input type="radio" name="toi" value="3"><span id="toi3">選択肢３</span>
+  </p>
+</main>
+
+<footer>
+  <p id="footter">第1問目</p>
+  <p id="kaisetu"></p>
+</footer>
+
+<script>
+//ここから記述領域［START］
+
+  //以下に配列を記述してください。
+  //問題文[配列]
+  const qs = ["ボールペンと消しゴムの値段は合わせて110円。ボールペンは消しゴムより100円高い。では、消しゴムの値段は？",
+              "幼女は深さ30メートルの井戸に落ちてしまった。幼女は1時間ごとに3メートル登るが、その直後に2メートルずり落ちてしまう。幼女が井戸から脱出するには何時間かかる？",
+              "ひっくり返ると、軽くなる動物は？",
+              "花束を２束と３束、合わせると何束になる？",
+              "水で薄めたビールはいくらでしょう？",
+              "頭の良い人、優しい人、お金持ちの人の３人が、槍投げをしました。槍が一番飛ばなかったのはどの人？"
+  ];
+    
+  //回答選択肢[多重配列]
+  const toi = [
+    ["5円","10円","20円"],
+    ["10時間","28時間","30時間"],
+    ["ゾウ","カメ","イルカ"],
+    ["1束","3束","5束"],
+    ["4円","8円","12円"],
+    ["頭の良い人","優しい人","お金持ちの人"]
+  ];
+    
+  //答え[配列]
+  const ans = [1, 2, 3, 1, 1, 2];
+
+  //1.最初の問題文＆回答選択肢＆回答値を設定
+  let i = 0;
+  $("#quest").text( qs[i] );
+  $("#toi1").text( toi[i][0] );
+  $("#toi2").text( toi[i][1] );  
+  $("#toi3").text( toi[i][2] );   
+
+  //2.ラジオボタンをクリックしたらイベント発生！(クリックイベント)
+  var num = 0;
+  var count = 0;
+  $("[name=toi]").on("click",function(){
+    const v = $(this).val();
+    num++;
+    if(num < qs.length){
+      if(ans[i] == v){
+        $("h1").text(num+"問目 正解!");
+        count++;
+      }else{
+        $("h1").text(num+"問目 不正解");
+      }
+      i++; //配列に入れるiが1プラスされます。
+      $("#quest").text( qs[i] );
+      $("#toi1").text( toi[i][0] );
+      $("#toi2").text( toi[i][1] );  
+      $("#toi3").text( toi[i][2] ); 
+      $("#footter").text("第"+(num+1)+"問目");
+      if(num == 1){
+        $("#kaisetu").text("1問目解説:消しゴムは10円ではありません。2つを合計すると120円になってしまいます。");
+      }else if(num == 2){
+        $("#kaisetu").text("2問目解説:27時間が経過した時からここから1時間あれば3メートル上がって脱出出来ます。");
+      }else if(num == 3){
+        $("#kaisetu").text("3問目解説:「軽い」を反対から読むと？");
+      }else if(num == 4){
+        $("#kaisetu").text("4問目解説:合わせたら結局1束");
+      }else if(num == 5){
+        $("#kaisetu").text("5問目解説:４円（酔えん）");
+      }
+    }else{
+      if(ans[i] == v){
+        $("h1").text(num+"問目 正解!");
+      }else{
+        $("h1").text(num+"問目 不正解");
+      }
+      alert("終了");
+      $("#quest").text("正解数"+count+"/"+qs.length);
+      $("#kaisetu").text("6問目解説:思いやり（重い槍）を持っていたから。");
+    }
+  });
+
+
+
+
+
+//ここまでが記述領域［END］
+</script>
+</body>
+</html>
