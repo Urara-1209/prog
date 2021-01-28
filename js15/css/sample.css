@@ -1,0 +1,185 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:center;
+    font-size: 32px;
+    font-family: 'Caveat', cursive;
+    font-family: "Nico Moji";
+    width: 80%; /* 幅は親要素の80% */
+    max-width: 800px; /* 幅は最大500pxまでしか広げない */
+    margin: 0 auto; /* 左右をauto指定にして左右中央揃えに */
+}
+.snow {
+  /*雪の色*/
+  color: snow;
+  /*雪の大きさ*/
+  font-size: 18px;
+  /*初期位置*/
+  position: fixed;
+  top: -5%;
+  /*雪そのものを幅に適当な幅で降らせる*/
+  text-shadow:
+  5vw   -100px 2px,
+  10vw  -400px 3px,
+  20vw  -500px 4px,
+  30vw  -580px 1px,
+  39vw  -250px 2px,
+  42vw  -340px 5px,
+  56vw  -150px 2px,
+  63vw  -180px 0,
+  78vw  -220px 4px,
+  86vw  -320px 9px,
+  94vw  -170px 7px;
+
+  /*アニメーションさせる*/
+  animation: anim 5s linear infinite;
+}
+
+@keyframes anim {
+  100% {
+    color: transparent;
+    top: 150%;
+  }
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+.resizeimage img { width: 100%; }
+h1{
+    font-size: 100%;
+}
+main{
+    width:100%;
+    display: block;
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+.c-clock {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 1px solid #333;
+  border-radius: 50%;
+}
+.c-clock__hour {
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 150px;
+  background: #333;
+  transform-origin: bottom;
+}
+.c-clock__min {
+  position: absolute;
+  top: calc(50% - 180px);
+  left: calc(50% - 2px);
+  width: 4px;
+  height: 180px;
+  background: #333;
+  transform-origin: bottom;
+}
+.c-clock__sec {
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 200px;
+  background: #ff0000;
+  transform-origin: bottom;
+}
+.c-clock__12 {
+  position: absolute;
+  top: 10px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+.c-clock__3 {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+.c-clock__6 {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+.c-clock__9 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:96%;
+    font-size: 80%;
+    margin: 0 3%;
+    text-align: center;
+}
+li{
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #fff;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    color:#0d7dfd;
+}
+li:hover{
+    background: #0d7dfd;
+    color:#fff;
+}
+textarea{
+  margin: 10px 3%;
+  width: 95%;
+  height: 100px;
+  font-size:80%;
+  box-shadow: 3px 3px 3px 3px #555;
+  background-color:rgb(241, 239, 239);
+}
+#key{
+    margin:0 3%;
+    width: 95%;
+    font-size:80%;
+    background-color: #e1efff;
+    box-shadow: 3px 3px 3px 3px #555;
+}
+table{
+    margin: 20px 3%;
+    border:1px solid #8dc3f5;
+    width:96%;
+    
+}
+th{
+    width:30%;
+    font-size:24px;
+    background-color:#d0e7fc;
+    border-bottom: 1px solid #8dc3f5;
+}
+td{
+    font-size:16px;
+    background-color:rgb(241, 239, 239);
+    border-bottom: 1px solid #8dc3f5;
+}
